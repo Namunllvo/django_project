@@ -16,11 +16,11 @@ class ProductForm(forms.ModelForm):
 #     message = forms.CharField(widget=forms.Textarea)
 
 # form - 입고
-# class InboundForm(forms.ModelForm):
-#     class Meta:
-#         model = Inbound
-#         fields = ['goods', 'amount', 'price_']
+class InboundForm(forms.ModelForm):
+    class Meta:
+        model = Inbound
+        fields = ['goods', 'amount', 'price_']
 
 # # form - 출고
-# class OutboundForm(forms.ModelForm):
-#     pass
+class OutboundForm(forms.ModelForm):
+    pass

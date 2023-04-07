@@ -57,30 +57,31 @@ class Product(models.Model):
 
 
 # model - 입고
-# class Inbound(models.Model):
-#     class Meta:
-#         db_table = "inbound"
-#     goods = models.ForeignKey( Product, on_delete=models.CASCADE)
-#     amount = models.IntegerField(verbose_name="상품 가격", null=False)
-#     inbound_at = models.DateTimeField(auto_now_add=True)
-#     price_ = models.ForeignKey( Product, on_delete=models.CASCADE)
+class Inbound(models.Model):
+    class Meta:
+        db_table = "inbound"
+    goods = models.ForeignKey( Product, on_delete=models.CASCADE)
+    amount = models.IntegerField(verbose_name="상품 가격", null=False)
+    inbound_at = models.DateTimeField(auto_now_add=True)
+    price_ = models.ForeignKey( Product, on_delete=models.CASCADE)
 
 #
 # model - 출고
-# class Outbound(models.Model):
-#     class Meta:
-#         db_table = "outbound"
-#     goods = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     amount = models.IntegerField(verbose_name="상품 가격", null=False)
-#     inbound_at = models.DateTimeField(auto_now_add=True)
-#     price_ = models.ForeignKey(Product, on_delete=models.CASCADE)
-#
+class Outbound(models.Model):
+    class Meta:
+        db_table = "outbound"
+    goods = models.ForeignKey(Product, on_delete=models.CASCADE)
+    amount = models.IntegerField(verbose_name="상품 가격", null=False)
+    inbound_at = models.DateTimeField(auto_now_add=True)
+    price_ = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+
 # # model - 입/출고 합산기능
-# class Invetory(models.Model):
-#     class Meta:
-#         db_table = "inventory"
-#
-#     inbound_amount = models.ForeignKey(Inbound , on_delete=models.CASCADE)
-#     outbound_amount = models.ForeignKey(Outbound , on_delete=models.CASCADE)
-    # inventory_amout = models.IntegerField(inbound_amount - outbound_amount)
+class Invetory(models.Model):
+    class Meta:
+        db_table = "inventory"
+
+    inbound_amount = models.ForeignKey(Inbound , on_delete=models.CASCADE)
+    outbound_amount = models.ForeignKey(Outbound , on_delete=models.CASCADE)
+    inventory_amout = models.IntegerField(inbound_amount - outbound_amount)
 
