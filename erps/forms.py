@@ -1,6 +1,6 @@
 # # erps/forms.py
 from django import forms
-from .models import Product
+from .models import Product, Inbound, Outbound
 
 
 # form - 상품등록
@@ -15,12 +15,16 @@ class ProductForm(forms.ModelForm):
 #     email = forms.EmailField()
 #     message = forms.CharField(widget=forms.Textarea)
 
+
 # form - 입고
 class InboundForm(forms.ModelForm):
     class Meta:
         model = Inbound
-        fields = ['goods', 'amount', 'price_']
+        fields = ['product', 'i_amount']
+
 
 # # form - 출고
 class OutboundForm(forms.ModelForm):
-    pass
+    class Meta:
+        model = Outbound
+        fields = ['product', 'o_amount']

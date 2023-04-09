@@ -1,11 +1,31 @@
 {#!!입/출고 합산-창고!!#}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>창고-입/출고 합산</title>
-</head>
-<body>
-
-</body>
-</html>
+{#product_list의 상품과#}
+{#입고에서 출고를 뺀 나머지가#}
+{#재고임으로 나오게 표시#}
+{% extends "base.html" %}
+{% block content %}
+    {% if product_list %}
+        <ul>
+            {% for pd in product_list %}
+                <div>
+                    <li><a href="#">{{ pd.name }}</a></li>
+                    <a>{{ '상품코드' }}---{{ pd.code }}</a>
+                    <a>{{ '상품설명' }}---{{ pd.description }}</a>
+                    <a>{{ '가격' }}---{{ pd.price }}</a>
+                    <a>{{ '사이즈' }}---{{ pd.size }}</a>
+                </div>
+            {% endfor %}
+        </ul>
+    {% elif product_inbound %}
+        <ul>
+            {% for pi in product_inbound %}
+                <div>
+                    <li><a href="#">{{ pi.product }}</a></li>
+                    <a>{{ '상품코드' }}---{{ pd.i_amount }}</a>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>상품이 없습니다.</p>
+    {% endif %}
+{% endblock %}

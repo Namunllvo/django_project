@@ -1,11 +1,12 @@
 {#!!출고!!#}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>출고 확인용</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h5 class="my-3 border-bottom pb-2">출고</h5>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">저장하기</button>
+        </form>
+    </div>
+{% endblock %}

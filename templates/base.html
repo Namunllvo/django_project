@@ -33,7 +33,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="/">무신사</a>
+        <a class="navbar-brand" href="/erps/list">무신사</a>
         {% if user.is_authenticated %}      {# 만약 로그인을 했다면 #}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -45,6 +45,12 @@
                     </li>
                     <li class="nav-item active">
                     <a class="nav-link" href="/erps/stock"> 재고관리 <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" href="/erps/in"> 입고 <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" href="/erps/out"> 출고 <span class="sr-only"></span></a>
                     </li>
                 </ul>
             </div>

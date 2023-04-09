@@ -2,13 +2,13 @@
 {% block content %}
     {% if product_list %}
         <ul>
-            {% for product in product_list %}
+            {% for pd in product_list %}
                 <div>
-                    <li><a href="#">{{ product.name }}</a></li>
-                    <a>{{ '상품코드' }}---{{ product.code }}</a>
-                    <a>{{ '상품설명' }}---{{ product.description }}</a>
-                    <a>{{ '가격' }}---{{ product.price }}</a>
-                    <a>{{ '사이즈' }}---{{ product.size }}</a>
+                    <li><a href="/erps/stock/{{ pd.id }}">{{ pd.name }}</a></li>
+                    <a>{{ '상품코드' }}---{{ pd.code }}</a>
+                    <a>{{ '상품설명' }}---{{ pd.description }}</a>
+                    <a>{{ '가격' }}---{{ pd.price }}</a>
+                    <a>{{ '사이즈' }}---{{ pd.size }}</a>
                 </div>
 
             {% endfor %}
